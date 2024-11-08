@@ -1,44 +1,53 @@
-const inputBox = document.getElementById("input-box"); 
-const listContainer = document.getElementById("list-container");
+const inputBox = document.getElementById("input-box");
+const taskList = document.getElementById("task-list");
+const completedList = document.getElementById("completed-list");
 
 function addTask() {
-  if(inputBox.value == '') {
-    alert("You must write something!");
-    } 
-    else {
-    let li = document.createElement("li");
-    li.innerHTML = inputBox.value;
-    listContainer.appendChild(li);
-    let span = document.createElement("span");
-    span.innerHTML = "\u00d7";  // The '×' character to delete the task
-    li.appendChild(document.createTextNode(inputBox.value));  // Add task text to the li element
-    li.appendChild(span);
-    listContainer.appendChild(li);
+    const taskText = inputBox.value.trim();
+    if (taskText === "") {
+        alert("Please enter a task.");
+        return;
+    }
 
-    // Clear input box after adding the task
+    // Create a new task item
+    const li = document.createElement("li");
+    li.textContent = taskText;
+
+    // Add a delete icon
+    const deleteSpan = document.createElement("span");
+    deleteSpan.textContent = "×";
+    deleteSpan.classList.add("delete");
+    li.appendChild(deleteSpan);
+
+    // Add event to mark task as completed
+    li.addEventListener("click", function () {
+        li.classList.toggle("checked");
+
+        if (li.classList.contains("checked")) {
+            // Move the task to the completed list
+            completedList.appendChild(li);
+        } else {
+            // Move the task back to the main list
+            taskList.appendChild(li);
+        }
+    });
+
+    // Add delete functionality to the task
+    deleteSpan.addEventListener("click", function (e) {
+        e.stopPropagation(); // Prevent task completion event
+        li.remove();
+    });
+
+    // Add the new task to the "Tasks for the Day" list
+    taskList.appendChild(li);
+
+    // Clear input box
     inputBox.value = "";
-    saveData();
-  }
 }
 
-listContainer.addEventListener("click", function(e) {
-  if (e.target.tagName === "LI") {
-    e.target.classList.toggle("checked");
-    saveData();
-  } else if (e.target.tagName === "SPAN") { 
-    e.target.parentElement.remove();
-    saveData();
-  }
-}, false);
-
-function saveData() {
-  localStorage.setItem("data", listContainer.innerHTML);
-}
-
-function showTask() {
-  listContainer.innerHTML = localStorage.getItem("data");
-}
-
-// Initialize tasks when the page loads
-showTask();
-
+// Optional: Allow adding tasks with Enter key press
+inputBox.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+        addTask();
+    }
+});

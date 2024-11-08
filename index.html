@@ -1,60 +1,48 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>To-Do List - Clipboard Style</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<html lang="en"> 
+                     <!-- Page designed to be in a clipboard -->
+<div class="clipboard-container">
+    <!-- Clipboard-like task container -->
+    <div class="clipboard">
+             <!-- Added a header inside the clipboard -->
+        <h2>TO-DO List</h2>
 
-<head> 
+        <!-- Input Area for Adding Tasks -->
+        <div class="input-container">
+            <textarea id="input-box" placeholder="Enter your task..."></textarea>
+            <button onclick="addTask()">Add Task</button>
+        </div>
 
-       <meta charset="UTF-8"> 
+        <!-- Task Columns inside the clipboard -->
+        <div class="task-columns">
+            <!-- Column for tasks to be completed -->
+            <div class="task-column">
+                <h3>Tasks for the Day</h3>
+                <ul id="task-list">
+                    <!-- List of tasks will go here -->
+                </ul>
+            </div>
 
-       <meta name="viewport" content="width=device-width, initial-scale=1"> 
+            <!-- Column for completed tasks -->
+            <div class="task-column">
+                <h3>Completed Tasks</h3>
+                <ul id="completed-list">
+                    <!-- Completed tasks will go here -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
-       <title>To Do List</title> 
-       <link rel="stylesheet" href=style.css>
-        
+<script src="script.js"></script>
 
-</head> 
-
-<body> 
-
-      <div class="container"> 
-
-          <div class="my.to.do.list"> 
-
-            <h2>To Do List<img src="TLD.jpg" alt="List Image"></h2> 
-
-             <div class="row"> 
-
-                <input type="text" id="input-box" placeholder="Add your text"> 
-
-                <button onclick="addTask()">Add</button> 
-
- 
-
-            </div> 
-
-             <ul id="list-container"> 
-
-            <!--  <li class="checked"> 
-
-                <li>Task1</li> 
-
-                <li>Task1</li> 
-
-                <li>Task1</li>--> 
-
-             </ul> 
-
-            </div> 
-
-</div> 
-
-<script src="script.js"></script> 
-
- 
-
-</body> 
-
-</html> 
-
- 
-
+</body>
+</html>
