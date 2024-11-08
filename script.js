@@ -22,6 +22,16 @@ function addTask() {
     deleteSpan.classList.add("delete");  // Add 'delete' class for styling
     li.appendChild(deleteSpan);  // Append the delete span to the list item
 
+    // Check if there's a due date, and if it's overdue, add a reminder style
+    if (dueDate) {
+      const taskDate = new Date(dueDate);
+      const now = new Date();
+
+      if (taskDate < now) {
+          li.classList.add("reminder"); // Apply reminder style for overdue tasks
+      }
+    }
+
     // Add event to mark task as completed
     li.addEventListener("click", function () {
         li.classList.toggle("checked");
