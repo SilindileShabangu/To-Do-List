@@ -13,12 +13,13 @@ function addTask() {
     const li = document.createElement("li");
     li.textContent = taskText;
 
-    // Add a delete icon
+    // Add a delete icon (trash bin using Font Awesome)
     const deleteSpan = document.createElement("span");
-    const trashIcon = document.createElement("i");
-    trashIcon.classList.add("fas", "fa-trash"); // Adding Font Awesome trash icon classes
-    deleteSpan.appendChild(trashIcon);
-    li.appendChild(deleteSpan);
+    const trashIcon = document.createElement("i");  // Create the <i> element for the icon
+    trashIcon.classList.add("fas", "fa-trash");  // Add Font Awesome trash bin icon classes
+    deleteSpan.appendChild(trashIcon);  // Append the trash icon to the span
+    deleteSpan.classList.add("delete");  // Add 'delete' class for styling
+    li.appendChild(deleteSpan);  // Append the delete span to the list item
 
     // Add event to mark task as completed
     li.addEventListener("click", function () {
@@ -33,10 +34,10 @@ function addTask() {
         }
     });
 
-    // Add delete functionality to the task
+    // Add delete functionality to the task (removes the task when clicked)
     deleteSpan.addEventListener("click", function (e) {
         e.stopPropagation(); // Prevent task completion event
-        li.remove();
+        li.remove();  // Remove the task item
     });
 
     // Add the new task to the "Tasks for the Day" list

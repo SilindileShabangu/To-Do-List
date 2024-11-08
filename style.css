@@ -162,6 +162,7 @@ ul li.checked {
 
 /* Delete Task Icon */
 ul li span {
+    
     font-size: 22px;
     cursor: pointer;
     color: #ff6f61;
