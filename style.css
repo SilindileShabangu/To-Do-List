@@ -9,7 +9,7 @@
 /* Body of the page */
 body {
     display: flex;
-    justify-content:right;
+    justify-content:center;
     align-items: center;
     min-height: 100vh;
     background-color: #f0f8ff; /* Light, soft background */
