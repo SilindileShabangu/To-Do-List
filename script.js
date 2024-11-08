@@ -1,4 +1,5 @@
 const inputBox = document.getElementById("input-box");
+const dueDateInput = document.getElementById("due-date");
 const taskList = document.getElementById("task-list");
 const completedList = document.getElementById("completed-list");
 
