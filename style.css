@@ -172,6 +172,16 @@ ul li span:hover {
     color: #f30d0d;
 }
 
+ul li span i {
+    font-size: 22px; /* Adjust size */
+    color: #ff6f61;  /* Set color of the trash bin icon */
+    transition: color 0.2s ease;
+}
+
+ul li span:hover i {
+    color: #f30d0d; /* Change to red on hover */
+}
+
 
 
 /* Fun animation for adding tasks */
