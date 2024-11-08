@@ -168,6 +168,10 @@ ul li span {
     transition: color 0.2s ease;
 }
 
+ul li span:hover {
+    color: #f30d0d;
+}
+
 
 
 /* Fun animation for adding tasks */
