@@ -9,7 +9,7 @@
 /* Body of the page */
 body {
     display: flex;
-    justify-content: center;
+    justify-content:right;
     align-items: center;
     min-height: 100vh;
     background-color: #f0f8ff; /* Light, soft background */
@@ -168,9 +168,7 @@ ul li span {
     transition: color 0.2s ease;
 }
 
-ul li span:hover {
-    color: #e75d4d;
-}
+
 
 /* Fun animation for adding tasks */
 ul li {
