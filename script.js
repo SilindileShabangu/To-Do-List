@@ -15,8 +15,9 @@ function addTask() {
 
     // Add a delete icon
     const deleteSpan = document.createElement("span");
-    deleteSpan.textContent = "×";
-    deleteSpan.classList.add("delete");
+    const trashIcon = document.createElement("i");
+    trashIcon.classList.add("fas", "fa-trash"); // Adding Font Awesome trash icon classes
+    deleteSpan.appendChild(trashIcon);
     li.appendChild(deleteSpan);
 
     // Add event to mark task as completed
