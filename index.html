@@ -16,11 +16,16 @@
         <h2>TO-DO List</h2>
 
                       <!-- Input Area for Adding Tasks -->
-        <div class="input-container">
-            <textarea id="input-box" placeholder="Enter your task"></textarea>
-            <input type="datetime-local" id="due-date" placeholder="Select due date">
-            <button onclick="addTask()">Add Task</button>
-    </div>
+                       <form action="">
+
+                        <div class="input-container">
+                            <textarea id="input-box" placeholder="Enter your task" required></textarea>
+                        
+                            <input type="datetime-local" id="due-date" placeholder="Select due date">
+                            <button onclick="addTask()">Add Task</button>
+                    </div>
+
+                       </form>
 
                       <!-- Task Columns inside the clipboard -->
         <div class="task-columns">

@@ -3,64 +3,131 @@ const dueDateInput = document.getElementById("due-date");
 const taskList = document.getElementById("task-list");
 const completedList = document.getElementById("completed-list");
 
+// Fetch tasks from localStorage or the server
+function fetchTasks() {
+    const tasksFromStorage = JSON.parse(localStorage.getItem('tasks')) || [];
+    tasksFromStorage.forEach(task => {
+        if (task.completed) {
+            createTaskElement(task, completedList);
+        } else {
+            createTaskElement(task, taskList);
+        }
+    });
+}
+
+// Save tasks to localStorage
+function saveTasks(tasks) {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+
+// Add a task to the DOM and handle interactions
+function createTaskElement(task, listElement) {
+    const li = document.createElement("li");
+    li.textContent = task.text;
+
+    // Handle due date and other properties if needed
+    if (task.dueDate) {
+        const taskDate = new Date(task.dueDate);
+        const now = new Date();
+        if (taskDate < now) {
+            li.classList.add("reminder");
+        }
+    }
+
+    // Add Complete Button to Task
+    const completeButton = document.createElement('button');
+    completeButton.textContent = "Complete";
+    completeButton.addEventListener('click', () => completeTask(task, li));
+
+    // Add delete functionality
+    const deleteIcon = document.createElement('span');
+    deleteIcon.innerHTML = '<i class="fas fa-trash"></i>';
+    deleteIcon.addEventListener('click', () => deleteTask(task, li));
+
+    // Append the button and delete icon to the list item
+    li.appendChild(completeButton);
+    li.appendChild(deleteIcon);
+
+    // Add task to the correct list (either "Tasks for the Day" or "Completed Tasks")
+    listElement.appendChild(li);
+}
+
+// Handle adding a new task
 function addTask() {
     const taskText = inputBox.value.trim();
+    const dueDate = dueDateInput.value;
+
     if (taskText === "") {
         alert("Please enter a task.");
         return;
     }
 
-    // Create a new task item
-    const li = document.createElement("li");
-    li.textContent = taskText;
+    const newTask = {
+        text: taskText,
+        dueDate: dueDate || null,
+        completed: false
+    };
 
-    // Add a delete icon (trash bin using Font Awesome)
-    const deleteSpan = document.createElement("span");
-    const trashIcon = document.createElement("i");  // Create the <i> element for the icon
-    trashIcon.classList.add("fas", "fa-trash");  // Add Font Awesome trash bin icon classes
-    deleteSpan.appendChild(trashIcon);  // Append the trash icon to the span
-    deleteSpan.classList.add("delete");  // Add 'delete' class for styling
-    li.appendChild(deleteSpan);  // Append the delete span to the list item
+    // Fetch current tasks from localStorage and add new task
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    tasks.push(newTask);
 
-    // Check if there's a due date, and if it's overdue, add a reminder style
-    if (dueDate) {
-      const taskDate = new Date(dueDate);
-      const now = new Date();
+    // Save updated tasks to localStorage
+    saveTasks(tasks);
 
-      if (taskDate < now) {
-          li.classList.add("reminder"); // Apply reminder style for overdue tasks
-      }
-    }
-
-    // Add event to mark task as completed
-    li.addEventListener("click", function () {
-        li.classList.toggle("checked");
-
-        if (li.classList.contains("checked")) {
-            // Move the task to the completed list
-            completedList.appendChild(li);
-        } else {
-            // Move the task back to the main list
-            taskList.appendChild(li);
-        }
-    });
-
-    // Add delete functionality to the task (removes the task when clicked)
-    deleteSpan.addEventListener("click", function (e) {
-        e.stopPropagation(); // Prevent task completion event
-        li.remove();  // Remove the task item
-    });
-
-    // Add the new task to the "Tasks for the Day" list
-    taskList.appendChild(li);
-
-    // Clear input box
+    // Clear input fields
     inputBox.value = "";
+    dueDateInput.value = "";
+
+    // Update the task list in the DOM
+    createTaskElement(newTask, taskList);
 }
 
-// Optional: Allow adding tasks with Enter key press
-inputBox.addEventListener("keypress", function (e) {
-    if (e.key === "Enter") {
-        addTask();
-    }
+// Handle deleting a task
+function deleteTask(taskToDelete, liElement) {
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    // Remove the task from tasks array
+    tasks = tasks.filter(task => task.text !== taskToDelete.text);
+
+    // Save updated tasks to localStorage
+    saveTasks(tasks);
+
+    // Remove the task from the DOM
+    liElement.remove();
+}
+
+// Handle completing a task
+function completeTask(taskToComplete, liElement) {
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    // Mark the task as completed in the tasks array
+    tasks = tasks.map(task => {
+        if (task.text === taskToComplete.text) {
+            task.completed = true;
+        }
+        return task;
+    });
+
+    // Save updated tasks to localStorage
+    saveTasks(tasks);
+
+    // Move task to the completed list and update its appearance
+    liElement.classList.add('checked');
+    completedList.appendChild(liElement);
+
+    // Remove "Complete" button since the task is now completed
+    liElement.querySelector('button').remove();
+}
+
+// Add event listener for adding tasks
+const addButton = document.querySelector("button");
+addButton.addEventListener("click", addTask);
+
+document.addEventListener('DOMContentLoaded', () => {
+    fetchTasks(); // Fetch tasks from localStorage when the page loads
 });
+
+
+
+

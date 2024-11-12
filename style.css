@@ -204,3 +204,25 @@ ul li.reminder {
 ul li.reminder:hover {
     background-color: #f5c6cb; /* Slightly darker red when hovered */
 }
+
+/* Completed Task Style */
+ul li.checked {
+    text-decoration: line-through;
+    color: #aaa;
+    background-color: #e0e0e0; /* Lighter background when completed */
+}
+
+/* Completed Task Button Style */
+ul li button {
+    padding: 8px 12px;
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+ul li button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
