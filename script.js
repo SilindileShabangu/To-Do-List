@@ -57,10 +57,7 @@ function addTask() {
     const taskText = inputBox.value.trim();
     const dueDate = dueDateInput.value;
 
-    if (taskText === "") {
-        alert("Please enter a task.");
-        return;
-    }
+    if (!taskText) return;
 
     const newTask = {
         text: taskText,
@@ -68,6 +65,8 @@ function addTask() {
         completed: false
     };
 
+
+ 
     // Fetch current tasks from localStorage and add new task
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     tasks.push(newTask);
