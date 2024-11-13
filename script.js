@@ -26,13 +26,13 @@ function createTaskElement(task, listElement) {
     li.textContent = task.text;
 
     // Handle due date and other properties if needed
-    if (task.dueDate) {
+if (task.dueDate) {
         const taskDate = new Date(task.dueDate);
         const now = new Date();
         if (taskDate < now) {
             li.classList.add("reminder");
         }
-    }
+}
 
     // Add Complete Button to Task
     const completeButton = document.createElement('button');
@@ -57,13 +57,13 @@ function addTask() {
     const taskText = inputBox.value.trim();
     const dueDate = dueDateInput.value;
 
-    if (!taskText) return;
+if (!taskText) return;
 
     const newTask = {
         text: taskText,
         dueDate: dueDate || null,
         completed: false
-    };
+};
 
 
  
@@ -102,11 +102,11 @@ function completeTask(taskToComplete, liElement) {
 
     // Mark the task as completed in the tasks array
     tasks = tasks.map(task => {
-        if (task.text === taskToComplete.text) {
+    if (task.text === taskToComplete.text) {
             task.completed = true;
         }
         return task;
-    });
+   });
 
     // Save updated tasks to localStorage
     saveTasks(tasks);
@@ -126,7 +126,6 @@ addButton.addEventListener("click", addTask);
 document.addEventListener('DOMContentLoaded', () => {
     fetchTasks(); // Fetch tasks from localStorage when the page loads
 });
-
 
 
 
