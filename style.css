@@ -228,16 +228,22 @@ ul li button:hover {
 }
 
 
-/* Body of the page */
+/* Added baground image */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url('vec.jpg'); /* Path to your background image */
+    background-image: url('vec.jpg'); 
     background-size: cover; /* Cover the entire area */
     background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
+    background-repeat: no-repeat; 
     margin: 0;
     padding: 20px;
 }
+
+
+
+
+
+
