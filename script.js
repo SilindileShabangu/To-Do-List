@@ -132,3 +132,85 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
+const upcomingList = document.getElementById("upcoming-list");
+
+// Function to display upcoming events
+function displayUpcomingEvents() {
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    const today = new Date();
+    const upcomingTasks = tasks.filter(task => {
+        if (task.dueDate) {
+            const dueDate = new Date(task.dueDate);
+            const timeDiff = dueDate - today; // Difference in milliseconds
+            const daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24)); // Convert to days
+            return daysDiff >= 0 && daysDiff <= 7; // Upcoming within the next 7 days
+        }
+        return false;
+    });
+
+    // Clear previous upcoming events
+    upcomingList.innerHTML = '';
+
+    // Populate the upcoming events list
+    upcomingTasks.forEach(task => {
+        const li = document.createElement("li");
+        li.textContent = `${task.text} - Due on: ${new Date(task.dueDate).toLocaleDateString()}`;
+        upcomingList.appendChild(li);
+    });
+}
+
+// Call displayUpcomingEvents when the page loads and when tasks are added
+document.addEventListener('DOMContentLoaded', () => {
+    checkNotificationPermission();
+    fetchTasks();
+    displayUpcomingEvents(); // Display upcoming events on load
+});
+
+// Update the addTask function to refresh upcoming events
+function addTask() {
+    const taskText = inputBox.value.trim();
+    const dueDate = dueDateInput.value;
+
+    if (!taskText) return;
+
+    const newTask = {
+        text: taskText,
+        dueDate: dueDate || null,
+        completed: false
+    };
+
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    tasks.push(newTask);
+    saveTasks(tasks);
+
+    // Clear input fields
+    inputBox.value = "";
+    dueDateInput.value = "";
+
+    createTaskElement(newTask, taskList);
+    showNotification('New Task Added', `You have added: "${taskText}"`);
+
+    // Refresh upcoming events
+    displayUpcomingEvents();
+}
+
+// Update the completeTask function to refresh upcoming events
+function completeTask(taskToComplete, liElement) {
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    tasks = tasks.map(task => {
+        if (task.text === taskToComplete.text) {
+            task.completed = true;
+        }
+        return task;
+    });
+
+    saveTasks(tasks);
+    liElement.classList.add('checked');
+    completedList.appendChild(liElement);
+    liElement.querySelector('button').remove();
+    showNotification('Task Completed', `You have completed: "${taskToComplete.text}"`);
+
+    // Refresh upcoming events
+    displayUpcomingEvents();
+}

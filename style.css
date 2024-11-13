@@ -234,7 +234,7 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-image: url('vec.jpg'); 
+    background-image: url('BBC.jpg'); 
     background-size: cover; /* Cover the entire area */
     background-position: center; /* Center the image */
     background-repeat: no-repeat; 
@@ -247,3 +247,16 @@ body {
 
 
 
+.upcoming-events {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upcoming-events h3 {
+    text-align: center;
+    color: #3d5a80;
+    margin-bottom: 15px;
+}
