@@ -3,12 +3,12 @@ Overview
 The To-Do List Application is a simple yet effective web-based tool to help you manage and organize your tasks. With an intuitive interface and core functionalities like adding, completing, and deleting tasks, this app makes it easy to stay on top of your to-do list. Tasks are saved in local storage, meaning that they persist even after refreshing the page, offering a seamless user experience.
 
 # Features
-Add Tasks: Quickly add tasks with an optional due date.
-Mark as Completed: Easily mark tasks as completed, which will move them to the completed list.
-Delete Tasks: Remove tasks from your list if you no longer need them.
-Persistent Data Storage: All tasks are stored in the browser's local storage, so they persist even after page reloads.
-Screenshots
-Main View (with tasks)
+1  Add Tasks: Quickly add tasks with an optional due date.
+2  Mark as Completed: Easily mark tasks as completed, which will move them to the completed list.
+3  Delete Tasks: Remove tasks from your list if you no longer need them.
+4  Persistent Data Storage: All tasks are stored in the browser's local storage, so they persist even after page reloads.
+5  Screenshots
+6  Main View (with tasks)
 
 # Completed Tasks View
 
