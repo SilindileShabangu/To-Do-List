@@ -1,8 +1,8 @@
-To-Do List Application
+1 To-Do List Application
 Overview
 The To-Do List Application is a simple yet effective web-based tool to help you manage and organize your tasks. With an intuitive interface and core functionalities like adding, completing, and deleting tasks, this app makes it easy to stay on top of your to-do list. Tasks are saved in local storage, meaning that they persist even after refreshing the page, offering a seamless user experience.
 
-Features
+2 Features
 Add Tasks: Quickly add tasks with an optional due date.
 Mark as Completed: Easily mark tasks as completed, which will move them to the completed list.
 Delete Tasks: Remove tasks from your list if you no longer need them.
@@ -10,39 +10,42 @@ Persistent Data Storage: All tasks are stored in the browser's local storage, so
 Screenshots
 Main View (with tasks)
 
-Completed Tasks View
+3 Completed Tasks View
 
-Table of Contents
+4 Table of Contents
 Technologies Used
 Project Setup
 How to Use
 File Structure
 Contributing
 License
-Technologies Used
+
+5 Technologies Used
 This project leverages the following technologies:
 
-HTML: Defines the structure of the web application, including the task list, buttons, and input fields.
+HTML: 
+Defines the structure of the web application,including the task list, buttons, and input fields.
 CSS: Provides styling for the interface, including the clipboard design and task list presentation.
 JavaScript: Handles the dynamic functionality of the app, including adding tasks, marking tasks as completed, and removing tasks.
 Font Awesome: Used for including icons (e.g., for the "Delete" button and "Complete" button) to enhance user experience.
 Project Setup
-To set up the project locally on your machine, follow these steps:
 
-Prerequisites
+6 To set up the project locally on your machine, follow these steps:
+
+7 Prerequisites
 A web browser (Chrome, Firefox, Safari, etc.)
 A basic text editor or IDE (e.g., VS Code, Sublime Text)
 Optional: Local server environment (if you want to test via a server)
 Steps to Run the Project
 Clone the Repository
 
-Open your terminal and run the following command to clone the repository:
+8 Open your terminal and run the following command to clone the repository:
 bash
 Copy code
 git clone https://github.com/SilindileShabangu/To-Do-List.git
 Navigate to Project Folder
 
-In your terminal, navigate to the project folder:
+9 In your terminal, navigate to the project folder:
 bash
 Copy code
 cd to-do-list
