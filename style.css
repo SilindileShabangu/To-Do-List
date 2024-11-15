@@ -1,1 +1,262 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comic Sans MS', sans-serif; /* Fun font */
+}
 
+/* Body of the page */
+body {
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f8ff; /* Light, soft background */
+    margin: 0;
+    padding: 20px;
+}
+
+/* Clipboard Style */
+.clipboard-container {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The Clipboard - Paper and Wood Look */
+.clipboard {
+    position: relative;
+    width: 100%;
+    padding: 40px;
+    background: #faf0e6; /* Paper-like color */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    background-image: url('paper-texture.jpg'); /* Add your paper texture here */
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Clip effect at the top */
+.clipboard::before {
+    content: '';
+    position: absolute;
+    top: -10px; /* Adjust position of the clip */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 20px;
+    background-color: #6c4f33; /* Wooden color */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Clip line effect */
+.clipboard::after {
+    content: '';
+    position: absolute;
+    top: -15px; /* Clip line positioning */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: #333; /* Dark line */
+    border-radius: 2px;
+}
+
+/* Header Styling */
+.clipboard h2 {
+    color: #3d5a80;
+    font-size: 26px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Input Box (Text Area) and Button */
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+textarea {
+    width: 80%;
+    height: 100px;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #6c5b7b;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 0 0 8px rgba(108, 91, 123, 0.5);
+}
+
+textarea:focus {
+    border-color: #ff6f61;
+}
+
+button {
+    padding: 12px 18px;
+    font-size: 16px;
+    background-color: #ff6f61; /* Fun, energetic button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #e75d4d; /* Slightly darker color when hovered */
+}
+
+/* Task Columns inside Clipboard */
+.task-columns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.task-column {
+    width: 48%; /* Each column takes up 48% of the clipboard width */
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.task-column h3 {
+    text-align: center;
+    font-size: 22px;
+    color: #3d5a80;
+    margin-bottom: 20px;
+}
+
+/* Task List */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background: #fff;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+}
+
+ul li.checked {
+    text-decoration: line-through;
+    color: #aaa;
+    background-color: #e0e0e0; /* Lighter background when completed */
+}
+
+/* Delete Task Icon */
+ul li span {
+    
+    font-size: 22px;
+    cursor: pointer;
+    color: #ff6f61;
+    transition: color 0.2s ease;
+}
+
+ul li span:hover {
+    color: #f30d0d;
+}
+
+ul li span i {
+    font-size: 22px; /* Adjust size */
+    color: #ff6f61;  /* Set color of the trash bin icon */
+    transition: color 0.2s ease;
+}
+
+ul li span:hover i {
+    color: #f30d0d; /* Change to red on hover */
+}
+
+
+
+/* Fun animation for adding tasks */
+ul li {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Keyframes for animation */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+/* Reminder Styles */
+ul li.reminder {
+    border-left: 5px solid red;
+    background-color: #ffebeb; /* Light red background for urgency */
+}
+
+ul li.reminder:hover {
+    background-color: #f5c6cb; /* Slightly darker red when hovered */
+}
+
+/* Completed Task Style */
+ul li.checked {
+    text-decoration: line-through;
+    color: #aaa;
+    background-color: #e0e0e0; /* Lighter background when completed */
+}
+
+/* Completed Task Button Style */
+ul li button {
+    padding: 8px 12px;
+    background-color: #4CAF50; /* Green color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+ul li button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+
+/* Added baground image */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('BBC.jpg'); 
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; 
+    margin: 0;
+    padding: 20px;
+}
+
+
+
+
+
+
+.upcoming-events {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.upcoming-events h3 {
+    text-align: center;
+    color: #3d5a80;
+    margin-bottom: 15px;
+}
