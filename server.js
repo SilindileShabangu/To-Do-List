@@ -20,16 +20,14 @@ const tasks = [
 
 
 // Define the server configuration
-// const hostname = '127.0.0.1';
+
 const port = 3000;
 
 
 // Create the server
 const server = http.createServer((req, res) => {
   JSON.stringify(tasks)
-  // Set the response HTTP header
-  // res.statusCode = 200;
-  // res.setHeader('Content-Type', 'text/plain');
+  
   res.writeHead(200, {'Content-Type':'application/json'})
 
   // Send a response to the client
