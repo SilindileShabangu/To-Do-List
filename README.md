@@ -1,6 +1,7 @@
-# To-Do List Application
+# To-Do List 
 Overview
-The To-Do List Application is a simple yet effective web-based tool to help you manage and organize your tasks. With an intuitive interface and core functionalities like adding, completing, and deleting tasks, this app makes it easy to stay on top of your to-do list. Tasks are saved in local storage, meaning that they persist even after refreshing the page, offering a seamless user experience.
+
+The To-Do List Application is a simple yet effective web-based tool to help you manage and organize tasks. With an intuitive interface and core functionalities like adding, completing, and deleting tasks, upcoming events, this app makes it easy to stay on top of your to-do list. Tasks are saved in local storage, meaning that they persist even after refreshing the page, offering a seamless user experience.
 
 # Features
 -  Add Tasks: Quickly add tasks with an optional due date.
@@ -9,6 +10,7 @@ The To-Do List Application is a simple yet effective web-based tool to help you 
 -  Persistent Data Storage: All tasks are stored in the browser's local storage, so they persist even after page reloads.
 -  Screenshots
 -  Main View (with tasks)
+-  Upcoming events in the next 14 days
 
 # Technologies Used
 This project leverages the following technologies:
@@ -19,7 +21,9 @@ This project leverages the following technologies:
 
 # Project Setup
 To set up the project locally on your machine, follow these steps:
+
 Prerequisites
+
 - A web browser (Chrome, Firefox, Safari, etc.)
 - A basic text editor or IDE (e.g., VS Code, Sublime Text)
 - Optional: Local server environment (if you want to test via a server)
