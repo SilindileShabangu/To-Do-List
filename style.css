@@ -1,4 +1,4 @@
-/* Global Reset */
+
 * {
     margin: 0;
     padding: 0;
@@ -31,10 +31,10 @@ body {
     position: relative;
     width: 100%;
     padding: 40px;
-    background: #faf0e6; /* Paper-like color */
+    background: #faf0e6; 
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    background-image: url('paper-texture.jpg'); /* Add your paper texture here */
+    background-image: url('paper-texture.jpg'); 
     background-size: cover;
     background-position: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -63,7 +63,7 @@ body {
     transform: translateX(-50%);
     width: 60px;
     height: 4px;
-    background-color: #333; /* Dark line */
+    background-color: #333; 
     border-radius: 2px;
 }
 
@@ -112,7 +112,7 @@ button {
 }
 
 button:hover {
-    background-color: #e75d4d; /* Slightly darker color when hovered */
+    background-color: #e75d4d; 
 }
 
 /* Task Columns inside Clipboard */
@@ -157,7 +157,7 @@ ul li {
 ul li.checked {
     text-decoration: line-through;
     color: #aaa;
-    background-color: #e0e0e0; /* Lighter background when completed */
+    background-color: #e0e0e0; 
 }
 
 /* Delete Task Icon */
@@ -174,7 +174,7 @@ ul li span:hover {
 }
 
 ul li span i {
-    font-size: 22px; /* Adjust size */
+    font-size: 22px; 
     color: #ff6f61;  /* Set color of the trash bin icon */
     transition: color 0.2s ease;
 }
@@ -215,7 +215,7 @@ ul li.checked {
 /* Completed Task Button Style */
 ul li button {
     padding: 8px 12px;
-    background-color: #4CAF50; /* Green color */
+    background-color: #4CAF50; 
     color: white;
     border: none;
     border-radius: 5px;
@@ -246,11 +246,11 @@ body {
 
 
 
-
+/*Upcoming events styling*/
 .upcoming-events {
     margin-top: 30px;
     padding: 20px;
-    background: #f7f7f7;
+    background: #f0baba;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
